@@ -1,7 +1,6 @@
 .drawer {
     padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: none;
 }
 
 .drawer--is-visible {
