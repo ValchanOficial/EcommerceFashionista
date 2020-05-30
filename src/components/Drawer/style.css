@@ -1,0 +1,51 @@
+.drawer {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer--is-visible {
+    z-index: 1;
+    background: var(--bisque);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateZ(0);
+    box-shadow: 0 20px 40px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+    height: 100vh;
+}
+
+@media screen and (max-width: 960px) {
+    .drawer--is-visible {
+        width: 100%; 
+    }
+}
+
+.drawer__header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+.drawer__button--close--is-visible {
+    padding-top: 1rem;
+    background-color: transparent;
+    color: var(--black);
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 1.8rem;
+    margin-left: 50px;
+}
+.drawer__button--close {
+    display: hidden;
+}
+
+.drawer__button--close:hover {
+    color: var(--flame);
+}

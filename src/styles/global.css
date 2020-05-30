@@ -1,0 +1,40 @@
+
+*, :after, :before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--gold-crayola);
+  color: var(--black);
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  font-weight: var(--default-font-weight);
+  min-height: 100%;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+a, a:active, a:focus, a:hover {
+  color: var(--black);
+  text-decoration: none;
+}
+
+canvas {
+  border-radius: inherit;
+  height: 100%; 
+  left: 0px; 
+  position: absolute;
+  top: 0px; 
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}

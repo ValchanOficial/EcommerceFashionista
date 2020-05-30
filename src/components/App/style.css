@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app--is-drawer-visible {
+    overflow-y: hidden;
+    transition: opacity 225ms;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}

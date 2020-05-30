@@ -1,0 +1,56 @@
+svg {
+    height: 1.5rem;
+}
+
+.header {
+    background: var(--bisque);
+    height: 5.5rem;
+    width: 100vw;
+}
+
+.header__default {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: 0 2rem;
+}
+
+.header__icons {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 414px) {
+    .header__icons {
+        margin-left: 0.5rem; 
+    }
+}
+
+.header__icons--search {
+    cursor: pointer;
+    margin-right: 1rem;
+    background: transparent;
+    border-radius: 100%;
+    border: none;
+    box-shadow: none;
+    font-size: 2rem;
+    line-height: 0;
+    outline: none;
+    padding: 0;
+    position: relative;
+}
+
+.header__icons--cart {
+    cursor: pointer;
+    margin-right: 1rem;
+    background: transparent;
+    border-radius: 100%;
+    border: none;
+    box-shadow: none;
+    font-size: 2rem;
+    line-height: 0;
+    outline: none;
+    padding: 0;
+    position: relative;
+}

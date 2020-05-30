@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --black: #212529;
+    --dark-grey: #a7a7a7;
+    --bisque: #ECD5BA;
+    --white: #fff;
+    --red: #cf3838;    
+    --flame: #D35329;
+    --isabelline:#F8F3ED;
+    --alpha: #b78846;
+
+    --background-color: var(--bisque);
+    --brand-color: var(--black);
+    --danger-color: var(--red);
+    --color-inverse: var(--white);
+
+    --default-font-family: Noto Sans SC, sans-serif;
+    --default-font-size: 1.6rem;
+    --default-font-weight: 400;
+    --default-font-color: var(--brand-color);
+    --secondary-font-color: var(--dark-grey);
+
+    --break-small: 320px;
+    --break-medium: 992px;
+    --break-large: 1279px;
+}

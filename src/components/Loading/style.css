@@ -1,0 +1,30 @@
+.loading {
+    background: var(--isabelline);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: var(--default-font-family);
+    font-size: 4rem;
+    color: var(--alpha);
+}
+
+.svg {
+    margin-top: 2rem;
+    width: 100px;
+    height: 100px;
+    animation-name: spin;
+    animation-duration: 1600ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+  
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
