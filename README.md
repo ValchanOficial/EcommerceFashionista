@@ -53,7 +53,7 @@ Como um profissional front-end, você será responsável por desenvolver as **pr
 ## Propriedades de um produto (referência):
 ```json
 {
-	"name": "Nome do produto",
+    "name": "Nome do produto",
     "style": "Código de categoria",
     "code_color": "Código de categoria + código de cor",
     "color_slug": "slug da cor do produto",
