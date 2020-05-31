@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FaTshirt } from 'react-icons/fa';
 
 import { filterList } from '../../store/actions/action';
 
@@ -17,8 +18,8 @@ const Search = ({products, list, setList}) => {
             </div>
             <ul className="search__list">
                 <div className="list-div">
-                    {list && list.map(product =>  (
-                        <li className="list" key={product.name}>
+                    {list && list.map((product, index) =>  (
+                        <li className="list" key={index}>
                             <div className="list__item">
                                 <div className="list__item--image">
                                     <img className="list__image" 
@@ -37,9 +38,15 @@ const Search = ({products, list, setList}) => {
                             </div>
                         </li>
                     ))}
-                    {list.length === 0 && <div className="list--not-found">Nenhum item encontrado :\</div>}
+                    {list.length === 0 && (
+                        <div className="list--not-found">
+                            <FaTshirt className="list--not-found-icon"/>
+                            Nenhum item encontrado
+                            <p className="list--not-found-paragraph">Verifique se você digitou as palavras corretamente</p>
+                        </div>
+                    )}
                 </div>
-            </ul>            
+            </ul>
         </div>
     );
 }

@@ -23,7 +23,7 @@ export const setNumber = (number) => {
 export const filterList = (name, list) => {
     return {
         type: GET_FILTERED_PRODUCTS,
-        payload: name === '' ? [] : list.filter(product => product.name.toLowerCase().includes(name.toLowerCase()))
+        payload: /^ *$/.test(name) ? [] : list.filter(product => product.name.toLowerCase().includes(name.toLowerCase()))
     }
 }
 

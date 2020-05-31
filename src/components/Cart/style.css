@@ -128,8 +128,19 @@
 
 .list--not-found {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    text-align: center;
+}
+
+.list--not-found-icon {
+    width: 3rem;
+    height: auto;
+}
+
+.list--not-found-paragraph {
+    padding-top: 1rem;
     font-size: 1.2rem;
 }

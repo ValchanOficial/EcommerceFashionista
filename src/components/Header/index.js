@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FaSearch, FaShoppingBag } from 'react-icons/fa';
+import {ReactComponent as LogoSvg} from '../../assets/img/logo.svg';
 
 import { setStatus, setType } from '../../store/actions/action';
 
 import Counter from '../Counter';
-import {ReactComponent as LogoSvg} from '../../assets/img/logo.svg';
-import {ReactComponent as SearchSVG} from '../../assets/img/search.svg';
-import {ReactComponent as CartSVG} from '../../assets/img/cart.svg';
 
 import './style.css';
 
@@ -19,13 +18,11 @@ const Header = ({status, setOpen, number}) => {
                 </a>
                 <div className="header__icons">
                     <button className="header__icons--search" onClick={() => setOpen(!status, false)}>
-                        <SearchSVG alt="Search"/>
-                        <canvas height="0" width="0"></canvas>
+                        <FaSearch alt="Search"/>
                     </button>
                     <button className="header__icons--cart" onClick={() => setOpen(!status, true)}>
-                        <CartSVG alt="Cart"/>
+                        <FaShoppingBag alt="Cart"/>
                         <Counter value={number}/>
-                        <canvas height="0" width="0"></canvas>
                     </button>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FaShoppingBag } from 'react-icons/fa';
 
 import image from '../../assets/img/img_default.png';
 import './style.css';
@@ -9,8 +10,8 @@ const Cart = ({list, total, number}) => {
         <div className="cart">
             <ul className="cart__list">
                 <div className="list-div">
-                    {list && list.map(product => (
-                        <li className="list">
+                    {list && list.map((product, index) => (
+                        <li className="list" key={index}>
                             <div className="list__item">
                                 <div className="list__item--image">
                                     <img className="list__image" 
@@ -36,7 +37,12 @@ const Cart = ({list, total, number}) => {
                             <button className="list__button--remove">Remover Item</button>
                         </li>
                     ))}
-                    {list.length === 0 && <div className="list--not-found">Sua sacola está vazia :\</div>}
+                    {list.length === 0 && (
+                        <div className="list--not-found">
+                            <FaShoppingBag className="list--not-found-icon"/>
+                            <p className="list--not-found-paragraph">Sua sacola está vazia</p>
+                        </div>
+                    )}
                 </div>
             </ul>
             <div className="cart__subtotal">

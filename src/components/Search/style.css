@@ -95,8 +95,21 @@
 
 .list--not-found {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     font-size: 1.2rem;
+    text-align: center;
+}
+
+.list--not-found-icon {
+    width: 3rem;
+    height: auto;
+    padding-bottom: 1rem;
+}
+
+.list--not-found-paragraph {
+    padding-top: 1rem;
+    font-size: 1rem;
 }
