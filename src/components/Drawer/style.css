@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 380px;
+    width: 22rem;
     transform: translate3d(100%,0,0);
     transition: transform .3s ease-out,-webkit-transform .3s ease-out;
     display: flex;
@@ -36,8 +36,6 @@
     display: hidden;
     padding-top: 1rem;
     background-color: transparent;
-    color: var(--black);
-    
     border: 0;
     position: absolute;
     top: 0;

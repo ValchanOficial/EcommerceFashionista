@@ -16,7 +16,6 @@
 
 .search__input {
     background: var(--white);
-    color: var(--black);
     border: 0;
     font-size: 1rem;
     font-weight: 400;
@@ -71,23 +70,6 @@
     border: 0.1rem solid var(--alpha);
     width: 100%;
     height: auto;
-}
-
-.list__description {
-    width: 50%;
-    color: var(--black);
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9rem;
-    padding-right: 1rem;
-}
-
-.list__description--value {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    color: var(--black);
-    font-size: 0.9rem;
 }
 
 .list__description--installment {

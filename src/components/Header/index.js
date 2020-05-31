@@ -12,19 +12,17 @@ import './style.css';
 const Header = ({status, setOpen, number}) => {
     return (
         <header className="header">
-            <div className="header__default">
-                <a href="/">
-                    <LogoSvg alt="Amaro"/>
-                </a>
-                <div className="header__icons">
-                    <button className="header__icons--search" onClick={() => setOpen(!status, false)}>
-                        <FaSearch alt="Search"/>
-                    </button>
-                    <button className="header__icons--cart" onClick={() => setOpen(!status, true)}>
-                        <FaShoppingBag alt="Cart"/>
-                        <Counter value={number}/>
-                    </button>
-                </div>
+            <a href="/" className="header__logo">
+                <LogoSvg alt="Amaro"/>
+            </a>
+            <div className="header__icons">
+                <button className="header__icons--search" onClick={() => setOpen(!status, false)}>
+                    <FaSearch alt="Search"/>
+                </button>
+                <button className="header__icons--cart" onClick={() => setOpen(!status, true)}>
+                    <FaShoppingBag alt="Cart"/>
+                    <Counter value={number}/>
+                </button>
             </div>
         </header>
     )

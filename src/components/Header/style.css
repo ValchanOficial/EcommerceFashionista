@@ -1,20 +1,19 @@
-svg {
-    height: 1.5rem;
-}
-
 .header {
-    background: var(--bisque);
-    height: 5.5rem;
-    width: 100vw;
-}
-
-.header__default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 2rem;
-    margin: 0 2rem;
-    height: 100%;
+    background: var(--bisque);
+    height: 5rem;
+    width: 100vw;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.header__logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 8rem;
+    height: auto;
 }
 
 .header__icons {
@@ -35,7 +34,7 @@ svg {
     border-radius: 100%;
     border: none;
     box-shadow: none;
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 0;
     outline: none;
     padding: 0;
@@ -49,7 +48,7 @@ svg {
     border-radius: 100%;
     border: none;
     box-shadow: none;
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 0;
     outline: none;
     padding: 0;
