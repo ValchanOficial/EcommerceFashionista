@@ -6,10 +6,9 @@
 }
 
 .search__form {
+    background: var(--white);
     border: 0.3rem double var(--alpha);
     border-radius: 8px;
-    background: var(--white);
-    box-shadow: 0 0.2rem 2rem 0 rgba(0, 0, 0, 0.1);
     display: inline-block;
     padding: 0.2rem 1.2rem;
     width: 100%;
@@ -17,9 +16,8 @@
 
 .search__input {
     background: var(--white);
-    border: none;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
     color: var(--black);
+    border: 0;
     font-size: 1rem;
     font-weight: 400;
     width: 100%;

@@ -14,6 +14,7 @@ svg {
     justify-content: space-between;
     padding: 2rem;
     margin: 0 2rem;
+    height: 100%;
 }
 
 .header__icons {
