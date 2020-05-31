@@ -125,3 +125,11 @@
     bottom: 0;
     margin-bottom: 2rem;
 }
+
+.list--not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.2rem;
+}

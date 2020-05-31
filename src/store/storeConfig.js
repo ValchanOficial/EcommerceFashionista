@@ -1,14 +1,14 @@
 import { createStore, combineReducers } from 'redux';
 import catalog from './reducers/products';
-import number from './reducers/number';
+import cart from './reducers/cart';
+import drawer from './reducers/drawer';
 
 const reducers = combineReducers({
     catalog,
-    number
+    cart,
+    drawer
 });
 
-const storeConfig = () => {
-    return createStore(reducers);
-}
+const storeConfig = () => createStore(reducers); 
 
 export default storeConfig;

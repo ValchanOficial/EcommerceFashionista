@@ -6,7 +6,7 @@ import { filterList } from '../../store/actions/action';
 import image from '../../assets/img/img_default.png';
 import './style.css';
 
-const Search = ({products, list, number, setList}) => {
+const Search = ({products, list, setList}) => {
     return (
         <div className="search">
             <div className="search__form">
@@ -18,7 +18,7 @@ const Search = ({products, list, number, setList}) => {
             <ul className="search__list">
                 <div className="list-div">
                     {list && list.map(product =>  (
-                        <li className="list">
+                        <li className="list" key={product.name}>
                             <div className="list__item">
                                 <div className="list__item--image">
                                     <img className="list__image" 
@@ -37,6 +37,7 @@ const Search = ({products, list, number, setList}) => {
                             </div>
                         </li>
                     ))}
+                    {list.length === 0 && <div className="list--not-found">Nenhum item encontrado :\</div>}
                 </div>
             </ul>            
         </div>
@@ -46,8 +47,7 @@ const Search = ({products, list, number, setList}) => {
 const mapStateToProps = state => {
     return {
         products: state.catalog.products,
-        list: state.catalog.list,
-        number: state.number.value
+        list: state.catalog.list
     }
 }
 

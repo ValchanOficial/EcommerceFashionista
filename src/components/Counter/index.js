@@ -2,10 +2,10 @@ import React from 'react';
 
 import './style.css';
 
-const Counter = ({value}) => {
+const Counter = ({number = 0}) => {
     return (
         <sup className="counter">
-            <span>{value ? value : 0}</span>
+            <span>{number}</span>
         </sup>
     );
 }

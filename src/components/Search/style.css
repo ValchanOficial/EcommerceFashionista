@@ -94,3 +94,11 @@
     font-size: 0.8rem;
     color: var(--alpha);
 }
+
+.list--not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.2rem;
+}
