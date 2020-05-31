@@ -1,5 +1,7 @@
 # Codenation - Fashionista E-commerce
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c6871f7a-35f0-410e-ae18-d5f153900c2b/deploy-status)](https://app.netlify.com/sites/valchan-ecommerce-fashionista/deploys)
+
 ## Start
 
 ```js
