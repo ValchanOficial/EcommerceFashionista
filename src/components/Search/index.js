@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { filterList } from '../../store/actions/action';
+
 import image from '../../assets/img/img_default.png';
 import './style.css';
 
-const Search = ({number=0},{products=[]}) => {
-    const [list, setList] = useState([]);
-    
-    const filterByName = (name, list) => list.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
-    const handleTyping = (value) => setList(filterByName(value, products));
-
+const Search = ({products, list, number, setList}) => {
     return (
         <div className="search">
             <div className="search__form">
                 <input className="search__input" type="text" placeholder="Buscar por produto..."
-                    onChange={e => handleTyping(e.target.value)}
-                    onPaste={e => handleTyping(e.target.value)}
+                    onChange={e => setList(e.target.value, products)}
+                    onPaste={e => setList(e.target.value, products)}
                 />
             </div>
             <ul className="search__list">
@@ -44,4 +43,20 @@ const Search = ({number=0},{products=[]}) => {
     );
 }
 
-export default Search;
+const mapStateToProps = state => {
+    return {
+        products: state.catalog.products,
+        list: state.catalog.list,
+        number: state.number.value
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setList(name, list) {
+            dispatch(filterList(name, list));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

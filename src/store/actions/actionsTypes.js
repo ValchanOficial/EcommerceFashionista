@@ -1,0 +1,3 @@
+export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const GET_NUMBER = 'GET_NUMBER';
+export const GET_FILTERED_PRODUCTS = 'GET_FILTERED_PRODUCTS';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Product from '../Product';
 import './style.css';
@@ -19,4 +20,10 @@ const Products = ({products}) => {
     )
 }
 
-export default Products;
+const mapStateToProps = state => {
+    return {
+        products: state.catalog.products
+    }
+}
+
+export default connect(mapStateToProps)(Products);

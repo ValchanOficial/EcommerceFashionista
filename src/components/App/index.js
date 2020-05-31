@@ -1,5 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { setProducts } from '../../store/actions/action';
+
 import Api from '../../services/api';
+
 import './style.css';
 
 import Header from '../Header';
@@ -7,26 +12,29 @@ import Products from '../Products';
 import Drawer from '../Drawer';
 import Loading from '../Loading';
 
-const App = () => {
-    const [catalog, setCatalog] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const value = await Api.getCatalog();
-            await setCatalog(value);
-        }
-        fetchData();
-    }, []);
-
+const App = ({ products }) => {
     return (
         <div className="app">
             <Header/>
-            {catalog.length === 0 
+            {products.length === 0 
             ? <Loading/>
-            : <Products products={catalog}/>}
+            : <Products/>}
             <Drawer/>
         </div>
     )
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        products: state.catalog.products
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    Api.getCatalog().then(res =>{
+        dispatch(setProducts(res));
+    });
+    return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
