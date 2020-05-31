@@ -62,13 +62,15 @@
 .list__item--image {
     display: flex;
     justify-content: center;
-    width: 25%;
+    width: 5rem;
+    height: auto;
     margin-right: 0.5rem;
 }
 
 .list__image {
     border: 0.1rem solid var(--alpha);
-    width: auto;
+    width: 100%;
+    height: auto;
 }
 
 .list__description {
