@@ -50,6 +50,11 @@
     justify-content: center;
     align-content: center;
     margin-bottom: 1rem;
+    transition: border 0.2s;
+}
+
+.list:hover {
+    border: 0.2rem inset var(--alpha);
 }
 
 .list__item {

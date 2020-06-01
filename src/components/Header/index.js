@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { FaSearch, FaShoppingBag } from 'react-icons/fa';
-import {ReactComponent as LogoSvg} from '../../assets/img/logo.svg';
 
 import { setStatus, setType } from '../../store/actions/action';
+
+import {ReactComponent as LogoSvg} from '../../assets/img/logo.svg';
 
 import Counter from '../Counter';
 
@@ -12,9 +14,9 @@ import './style.css';
 const Header = ({status, setOpen, number}) => {
     return (
         <header className="header">
-            <a href="/" className="header__logo">
+            <Link to="/" className="header__logo">
                 <LogoSvg alt="Amaro"/>
-            </a>
+            </Link>
             <div className="header__icons">
                 <button className="header__icons--search" onClick={() => setOpen(!status, false)}>
                     <FaSearch alt="Search"/>

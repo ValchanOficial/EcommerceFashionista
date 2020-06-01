@@ -12,7 +12,7 @@ const Products = ({products}) => {
                 <div className="header__title">{totalProducts > 1 ? `${totalProducts} items` : `${totalProducts} item`}</div>
                 <div className="products__grid">
                     {products && products.map((product, index) => (
-                        <Product {...product} key={index}/>
+                        <Product product={product} key={index}/>
                     ))}
                 </div>
             </div>
