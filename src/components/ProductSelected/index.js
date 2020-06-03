@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 
-import { getProduct, setAddToWishList } from '../../store/actions/action';
+import { getProduct, setAddToWishList, setContextValue } from '../../store/actions/action';
 
 import Loading from '../Loading';
 import image from '../../assets/img/img_default.png';
 import './style.css';
 
-const ProductSelected = ({product, list, setAddToCart, setProduct}) => {
+const ProductSelected = ({product, list, setAddToCart, setProduct, context, setContext}) => {
     const { params: { code_color } } = useRouteMatch();
 
     useEffect(() => {
@@ -34,14 +34,21 @@ const ProductSelected = ({product, list, setAddToCart, setProduct}) => {
                             {product.sizes && product.sizes.map(({size, sku, available}) => {
                                 if(available === true) {
                                     return (
-                                        <button key={sku} className="product__selected__button">{size}</button>
+                                        <button 
+                                            key={sku} 
+                                            className={`product__selected__button ${context === size && 'product__selected__button--selected'}`}
+                                            onClick={() => setContext(size)}
+                                        >
+                                            {size}
+                                        </button>
                                     )
                                 }
                                 return null;
                             })}
                         </div>
                         <button className="product__selected__button--add" 
-                            onClick={() => setAddToCart(product, list)}
+                            onClick={() => setAddToCart(product, list, context)}                            
+                            disabled={!context || /^\s*$/.test(context)}
                         >Adicionar à Sacola</button>
                     </div>
                 </>
@@ -55,17 +62,21 @@ const ProductSelected = ({product, list, setAddToCart, setProduct}) => {
 const mapStateToProps = state => {
     return {
         product: state.catalog.product,
-        list: state.cart.list
+        list: state.cart.list,
+        context: state.cart.context
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setAddToCart(product, list) {
-            dispatch(setAddToWishList(product, list));
+        setAddToCart(product, list, context) {
+            dispatch(setAddToWishList(product, list, context));
         },
         setProduct(code_color) {
             dispatch(getProduct(code_color));
+        },
+        setContext(context) {
+            dispatch(setContextValue(context));
         }
     };
 }

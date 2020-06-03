@@ -25,9 +25,9 @@ const Cart = ({list, total, setRemoveAll, setAddToCart, setRemoveOne}) => {
                                     <strong>{product.name}</strong>
                                     <p className="list__description--size">Tam.: {product.size}</p>
                                     <div className="list__buttons">
-                                        <button className="list__buttons--button" onClick={() => setRemoveOne(product, list)}>-</button>
+                                        <button className="list__buttons--button" onClick={() => setRemoveOne(product, list, product.size)}>-</button>
                                         <strong className="list__buttons--count">{product.amount}</strong>
-                                        <button className="list__buttons--button" onClick={() => setAddToCart(product, list)}>+</button>
+                                        <button className="list__buttons--button" onClick={() => setAddToCart(product, list, product.size)}>+</button>
                                     </div>
                                 </div>
                                 <div className="list__description--value">
@@ -35,7 +35,9 @@ const Cart = ({list, total, setRemoveAll, setAddToCart, setRemoveOne}) => {
                                     <p className="list__description--installment">{product.installments}</p>
                                 </div>
                             </div>
-                            <button className="list__button--remove" onClick={() => setRemoveAll(product.code_color, list)}>Remover Item</button>
+                            <button className="list__button--remove" onClick={() => setRemoveAll(product, list)}>
+                                Remover Item
+                            </button>
                         </li>
                     )) : (
                         <div className="list--not-found">
@@ -61,14 +63,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setAddToCart(product, list) {
-            dispatch(setAddToWishList(product, list));
+        setAddToCart(product, list, size) {
+            dispatch(setAddToWishList(product, list, size));
         },
-        setRemoveOne(product, list) {
-            dispatch(setRemoveOneFromWishList(product, list));
+        setRemoveOne(product, list, size) {
+            dispatch(setRemoveOneFromWishList(product, list, size));
         },
-        setRemoveAll(code_color, list) {
-            dispatch(setRemoveFromWishList(code_color, list));
+        setRemoveAll(product, list) {
+            dispatch(setRemoveFromWishList(product, list));
         }
     };
 }

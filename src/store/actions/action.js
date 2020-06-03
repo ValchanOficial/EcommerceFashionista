@@ -5,7 +5,8 @@ import {
     GET_DRAWER_STATUS,
     GET_DRAWER_TYPE,
     ADD_ITEM_LIST,
-    REMOVE_ITEM_LIST
+    REMOVE_ITEM_LIST,
+    CHANGE_CONTEXT
 } from './actionsTypes';
 
 const getTotal = (list) => {
@@ -13,6 +14,8 @@ const getTotal = (list) => {
     total + Number(price.replace('R$', '').replace(',', '.')) * amount, 0)
     .toFixed(2);
 }
+
+const getTotalAmount = (list) => list.reduce((total, { amount }) => total + amount, 0);
 
 const containsDuplicatedToAdd = (list, product, size, productSelected) => {
     const index = list.findIndex(el => el.code_color === product.code_color && el.size === size);
@@ -93,38 +96,47 @@ export const setType = (status) => {
     }
 }
 
-export const setAddToWishList = (product, list, size='M') => {
+export const setAddToWishList = (product, list, size) => {
     const listValue = addProduct(product, list, size);
     return {
         type: ADD_ITEM_LIST,
         payload: {
             list: listValue,
-            number: listValue.length,
+            number: getTotalAmount(listValue),
             total: getTotal(listValue)
         }
     }
 }
 
-export const setRemoveOneFromWishList = (product, list, size='M') => {
+export const setRemoveOneFromWishList = (product, list, size) => {
     const listValue = containsDuplicatedToRemove(list, product, size);
     return {
         type: REMOVE_ITEM_LIST,
         payload: {
             list: listValue,
-            number: listValue.length,
+            number: getTotalAmount(listValue),
             total: getTotal(listValue)
         }
     }
 }
 
-export const setRemoveFromWishList = (code_color, list) => {
-    const listValue = list.filter(el => el.code_color !== code_color);
+export const setRemoveFromWishList = (product, list) => {
+    const listValue = list.filter(el => el !== product);
     return {
         type: REMOVE_ITEM_LIST,
         payload: {
             list: listValue,
-            number: listValue.length,
+            number: getTotalAmount(listValue),
             total: getTotal(listValue)
+        }
+    }
+}
+
+export const setContextValue = (context) => {
+    return {
+        type: CHANGE_CONTEXT,
+        payload: {
+            context
         }
     }
 }

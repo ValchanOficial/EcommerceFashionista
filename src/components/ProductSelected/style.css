@@ -89,6 +89,11 @@
     margin-bottom: 2rem;
 }
 
+.product__selected__button--add:disabled {
+    border: 0.2rem double transparent;
+    pointer-events: none;
+}
+
 .product__selected__button--add:hover {
     background: var(--alpha);
     border: 0.2rem double var(--bisque);
