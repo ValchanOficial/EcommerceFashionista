@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getProduct } from '../../store/actions/action';
+import { getProduct, setContextValue } from '../../store/actions/action';
 
 import image from '../../assets/img/img_default.png';
 import './style.css';
@@ -37,6 +37,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setProduct(code_color) {
+            dispatch(setContextValue(''));
             dispatch(getProduct(code_color));
         }
     };
