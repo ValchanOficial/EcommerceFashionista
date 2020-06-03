@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './style.css';
 
@@ -10,4 +11,10 @@ const Counter = ({number = 0}) => {
     );
 }
 
-export default Counter;
+const mapStateToProps = state => {
+    return {
+        number: state.cart.number
+    }
+}
+
+export default connect(mapStateToProps)(Counter);

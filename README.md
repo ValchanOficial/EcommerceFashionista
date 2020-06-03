@@ -74,3 +74,6 @@ Como um profissional front-end, você será responsável por desenvolver as **pr
     ]
 }
 ```
+
+## Fonte SVG
+- [unDraw](https://undraw.co/illustrations)

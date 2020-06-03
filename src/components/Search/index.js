@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaTshirt } from 'react-icons/fa';
 
+import { ReactComponent as ListImg } from '../../assets/img/list.svg'
 import { filterList } from '../../store/actions/action';
 
 import image from '../../assets/img/img_default.png';
@@ -43,7 +43,7 @@ const Search = ({list, setList}) => {
                     ))}
                     {list.length === 0 && (
                         <div className="list--not-found">
-                            <FaTshirt className="list--not-found-icon"/>
+                            <ListImg className="list--not-found-icon"/>
                             Nenhum item encontrado
                             <p className="list--not-found-paragraph">Verifique se você digitou as palavras corretamente</p>
                         </div>

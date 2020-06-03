@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 
-import { setNumber, getProduct } from '../../store/actions/action';
+import { getProduct, setAddToWishList } from '../../store/actions/action';
 
 import Loading from '../Loading';
 import image from '../../assets/img/img_default.png';
 import './style.css';
 
-const ProductSelected = ({product, setAddToCart, setProduct}) => {
+const ProductSelected = ({product, list, setAddToCart, setProduct}) => {
     const { params: { code_color } } = useRouteMatch();
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const ProductSelected = ({product, setAddToCart, setProduct}) => {
                     <img
                         className="product__selected__img" 
                         src={product.image ? product.image : image} 
-                        alt=""
+                        alt={product.name}
                     />
                     <div className="product__selected__description">
                         <strong className="product__selected__title">{product.name.toUpperCase()}</strong>
@@ -40,7 +40,9 @@ const ProductSelected = ({product, setAddToCart, setProduct}) => {
                                 return null;
                             })}
                         </div>
-                        <button className="product__selected__button--add">Adicionar à Sacola</button>
+                        <button className="product__selected__button--add" 
+                            onClick={() => setAddToCart(product, list)}
+                        >Adicionar à Sacola</button>
                     </div>
                 </>
             ): (
@@ -52,14 +54,15 @@ const ProductSelected = ({product, setAddToCart, setProduct}) => {
 
 const mapStateToProps = state => {
     return {
-        product: state.catalog.product
+        product: state.catalog.product,
+        list: state.cart.list
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setAddToCart(product, size) {
-            dispatch(setNumber(true));
+        setAddToCart(product, list) {
+            dispatch(setAddToWishList(product, list));
         },
         setProduct(code_color) {
             dispatch(getProduct(code_color));

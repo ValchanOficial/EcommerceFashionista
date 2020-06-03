@@ -1,4 +1,4 @@
-import { GET_TOTAL_ITEMS, GET_NUMBER } from '../actions/actionsTypes';
+import { ADD_ITEM_LIST, REMOVE_ITEM_LIST } from '../actions/actionsTypes';
 
 const initialState = {
     list: [],
@@ -8,15 +8,19 @@ const initialState = {
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case GET_TOTAL_ITEMS:
-            return {
-               ...state,
-               total: action.payload
-            }
-        case GET_NUMBER:
+        case ADD_ITEM_LIST:
             return {
                 ...state,
-                number: action.payload
+                list: action.payload.list,
+                total: action.payload.total,
+                number: action.payload.number
+            }
+        case REMOVE_ITEM_LIST:
+            return {
+                ...state,
+                list: action.payload.list,
+                total: action.payload.total,
+                number: action.payload.number
             }
         default:
             return state

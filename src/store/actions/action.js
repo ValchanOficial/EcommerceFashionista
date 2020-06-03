@@ -1,11 +1,49 @@
 import {
     GET_PRODUCT,
     GET_PRODUCTS,
-    GET_TOTAL_ITEMS,
     GET_FILTERED_PRODUCTS,
     GET_DRAWER_STATUS,
-    GET_DRAWER_TYPE
+    GET_DRAWER_TYPE,
+    ADD_ITEM_LIST,
+    REMOVE_ITEM_LIST
 } from './actionsTypes';
+
+const getTotal = (list) => {
+    return list.reduce((total, { price, amount }) => 
+    total + Number(price.replace('R$', '').replace(',', '.')) * amount, 0)
+    .toFixed(2);
+}
+
+const containsDuplicatedToAdd = (list, product, size, productSelected) => {
+    const index = list.findIndex(el => el.code_color === product.code_color && el.size === size);
+    if(index !== -1){
+        list[index].amount += 1
+        return [...list];
+    }
+    return [...list, productSelected];
+}
+
+const containsDuplicatedToRemove = (list, product, size) => {
+    const index = list.findIndex(el => el.code_color === product.code_color && el.size === size);
+    if(index !== -1) {
+        list[index].amount === 1 ? list.splice(index, 1) : list[index].amount -= 1;
+        return [...list];
+    }
+    return [...list];
+}
+
+const addProduct = (product, list, size) => {
+    const productSelected = {
+        image: product.image,
+        name: product.name,
+        code_color: product.code_color,
+        size,
+        price: product.on_sale ? product.actual_price : product.regular_price,
+        installments: product.installments,
+        amount: 1
+    }
+    return containsDuplicatedToAdd(list, product, size, productSelected)
+}
 
 export const setProducts = (products) => {
     localStorage.setItem('@EcommerceFashionista:products', JSON.stringify(products));
@@ -23,13 +61,6 @@ export const getProduct = (code_color) => {
     return {
         type: GET_PRODUCT,
         payload: product
-    }
-}
-
-export const setNumber = (add) => {
-    return {
-        type: GET_TOTAL_ITEMS,
-        payload: add ? +1 : -1
     }
 }
 
@@ -62,5 +93,38 @@ export const setType = (status) => {
     }
 }
 
+export const setAddToWishList = (product, list, size='M') => {
+    const listValue = addProduct(product, list, size);
+    return {
+        type: ADD_ITEM_LIST,
+        payload: {
+            list: listValue,
+            number: listValue.length,
+            total: getTotal(listValue)
+        }
+    }
+}
 
-// localStorage.setItem('@EcommerceFashionista:products', JSON.stringify(products));
+export const setRemoveOneFromWishList = (product, list, size='M') => {
+    const listValue = containsDuplicatedToRemove(list, product, size);
+    return {
+        type: REMOVE_ITEM_LIST,
+        payload: {
+            list: listValue,
+            number: listValue.length,
+            total: getTotal(listValue)
+        }
+    }
+}
+
+export const setRemoveFromWishList = (code_color, list) => {
+    const listValue = list.filter(el => el.code_color !== code_color);
+    return {
+        type: REMOVE_ITEM_LIST,
+        payload: {
+            list: listValue,
+            number: listValue.length,
+            total: getTotal(listValue)
+        }
+    }
+}

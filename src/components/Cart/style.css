@@ -92,7 +92,7 @@
     border: 0.1rem solid var(--alpha);
     border-radius: 3px;
     background: var(--bisque);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 0.2rem 0.2rem;
     width: 30%;
     margin-top: 0.6rem;
@@ -118,8 +118,8 @@
     text-align: center;
 }
 
-.list--not-found-icon {
-    width: 3rem;
+.list--not-found-image {
+    width: 18rem;
     height: auto;
 }
 
