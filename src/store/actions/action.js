@@ -57,7 +57,7 @@ export const setProducts = (products) => {
 }
 
 export const getProduct = (code_color) => {
-    const products = JSON.parse(localStorage.getItem('@EcommerceFashionista:products'));
+    const {products} = JSON.parse(localStorage.getItem('@EcommerceFashionista:products'));
     localStorage.setItem('@EcommerceFashionista:code', JSON.stringify(code_color));
     const product = products.find(el => el.code_color === code_color);  
     
@@ -68,7 +68,7 @@ export const getProduct = (code_color) => {
 }
 
 export const filterList = (name) => {
-    const products = JSON.parse(localStorage.getItem('@EcommerceFashionista:products'));
+    const {products} = JSON.parse(localStorage.getItem('@EcommerceFashionista:products'));
     return {
         type: GET_FILTERED_PRODUCTS,
         payload: /^ *$/.test(name) ? [] : products.filter(product => product.name.toLowerCase().includes(name.toLowerCase()))

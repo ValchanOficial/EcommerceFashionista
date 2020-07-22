@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Product from '../Product';
 import './style.css';
 
-const Products = ({products}) => {
+const Products = ({products: { products }}) => {
     const totalProducts = products.length;
     return (
         <section className="products">
