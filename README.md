@@ -49,9 +49,6 @@ Como um profissional front-end, você será responsável por desenvolver as **pr
 - Alguns produtos não tem todos os tamanhos disponíveis, mostre apenas os tamanhos disponíveis em estoque.
 - Implemente a funcionalidade de busca em tempo real.
 
-## Endpoint - Catálogo de Produtos
-- https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog
-
 ## Propriedades de um produto (referência):
 ```json
 {
